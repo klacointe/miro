@@ -16,7 +16,8 @@ module Miro
         :resolution         => "150x150",
         :color_count        => 8,
         :quantize           => 'RGB',
-        :method             => 'pixel_group'
+        :method             => 'pixel_group',
+        :read_timeout       => nil
       }
     end
     def pixel_group?

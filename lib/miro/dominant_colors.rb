@@ -92,7 +92,7 @@ module Miro
       original_extension = @image_type || URI.parse(@src_image_path).path.split('.').last
 
       tempfile = Tempfile.open(["source", ".#{original_extension}"])
-      remote_file_data = open(@src_image_path).read
+      remote_file_data = open(@src_image_path, read_timeout: Miro.options[:read_timeout]).read
 
       tempfile.write(should_force_encoding? ? remote_file_data.force_encoding("UTF-8") : remote_file_data)
       tempfile.close
